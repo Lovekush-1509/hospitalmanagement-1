@@ -30,7 +30,7 @@ Clone the project
 Go to the project directory
 
 ```bash
-  cd hms-frontend
+  cd hospitalmanagement-frontend
 ```
 
 Install dependencies
