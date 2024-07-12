@@ -48,12 +48,12 @@ Start the server
 
 ## Screenshots
 
-![services-page](Screenshots/Services-page.png)
+![services-page](HospitalManagement/Screenshots/Services-page.png)
 
-![login-page](Screenshots/Login-page.png)
+![login-page](HospitalManagement/Screenshots/Login-page.png)
 
-![book-appointment-page](Screenshots/Book-appointment.png)
+![book-appointment-page](HospitalManagement/Screenshots/Book-appointment.png)
 
-![landing-page](Screenshots/Landing-page.png)
+![landing-page](HospitalManagement/Screenshots/Landing-page.png)
 
-![mobile-landing-page](Screenshots/mobile-landing-page.png)&nbsp; &nbsp; &nbsp; ![mobile-login-page](Screenshots/mobile-login.png)
+![mobile-landing-page](HospitalManagement/Screenshots/mobile-landing-page.png)&nbsp; &nbsp; &nbsp; ![mobile-login-page](HospitalManagement/Screenshots/mobile-login.png)
