@@ -5,7 +5,7 @@
 <!-- <a href="https://hmsreact.vercel.app/">-->
   <img
     alt="App Screenshot"
-    src="hospitalmanagement/Screenshots/home-page.png"
+    src="HospitalManagement/Screenshots/home-page.png"
   />
 <!-- </a> -->
 
