@@ -24,13 +24,13 @@ A Dummy Web based applicaton for Hospitals where one can create their accounts a
 Clone the project
 
 ```bash
-  git clone https://github.com/Lovekush-1509/hospitalmanagement-1.git
+  git clone https://github.com/Lovekush-1509/HospitalManagement-1.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd hospitalmanagement-frontend
+  cd HospitalManagement
 ```
 
 Install dependencies
