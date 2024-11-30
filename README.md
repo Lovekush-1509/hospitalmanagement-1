@@ -56,4 +56,4 @@ Start the server
 
 ![landing-page](HospitalManagement/Screenshots/Landing-page.png)
 
-![mobile-landing-page](HospitalManagement/Screenshots/mobile-landing-page.png)&nbsp; &nbsp; &nbsp; ![mobile-login-page](HospitalManagement/Screenshots/mobile-login.png)
+![mobile-landing-page](HospitalManagement/Screenshots/mobile-landing-page.png)&nbsp; &nbsp; &nbsp;
