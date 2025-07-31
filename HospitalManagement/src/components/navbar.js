@@ -28,7 +28,7 @@ const Navbar = () => {
 				<li>
 					<a
 						rel="noreferrer"
-						href={"https://github.com/Aarav619/hms-frontend"}
+						href={"https://github.com/Lovekush-1509"}
 						target={"_blank"}>
 						About-Us
 					</a>
@@ -56,7 +56,7 @@ const Navbar = () => {
 				<li>
 					<a
 						rel="noreferrer"
-						href={"https://github.com/Aarav619/hms-frontend"}
+						href={"https://github.com/Lovekush-1509"}
 						target={"_blank"}>
 						About-Us
 					</a>
