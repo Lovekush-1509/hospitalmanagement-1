@@ -12,7 +12,11 @@ const routes = require("./routes/user");
 databaseConnect();
 
 app.use(cors({
-    origin:process.env.FRONTEND_URL,
+    origin:[
+    "https://hospitalmanagement-1.vercel.app",
+    "https://hospitalmanagement-1-git-main-fortesting1509-gmailcoms-projects.vercel.app",
+    "https://hospitalmanagement-1-1se0hpamb.vercel.app"
+  ],
     credentials:true,
 }));
 
