@@ -4,6 +4,7 @@ import LoginDetails from "../context/LoginContext";
 
 const Navbar = () => {
 	const { loggedIn, user } = useContext(LoginDetails);
+	console.log("inside navbar:",user)
 	return !loggedIn ? (
 		<div className={"navbar"}>
 			<div className={"nav-container"}>
@@ -20,7 +21,7 @@ const Navbar = () => {
 					<a href={"/"}>Home</a>
 				</li>
 				<li>
-					<a href={"/login"}>Login</a>
+					 <a href={"/login"}>Login</a>
 				</li>
 				<li>
 					<a href={"/signup"}>Sign Up</a>
@@ -48,7 +49,7 @@ const Navbar = () => {
 			</div>
 			<ul className={"nav-links"}>
 				<li>
-					<a href={"/appointmentpage"}>{user.name}</a>
+					<a href={"/appointmentpage"}>{user?.name}</a>
 				</li>
 				<li>
 					<a href={"/appointments"}>Book Appoinment</a>

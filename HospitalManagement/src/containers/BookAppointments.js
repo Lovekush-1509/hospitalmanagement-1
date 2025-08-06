@@ -14,12 +14,16 @@ const BookAppointments = () => {
 
 	const onMakeAppointment = async (e) => {
 		e.preventDefault();
-		await Axios.post(`${baseURL}/user/makeApt`, {
-			...appointment,
-			pid: user._id,
-		})
-			.then(() => {
+		console.log(`${baseURL}/user/makeApt`,appointment)
+		await Axios.post(`${baseURL}/user/makeApt`, appointment,{withCredentials: true, credentials: "include",})
+			.then((data) => {
+				console.log( "apt:",data.data)
+				if(data.data.success === false){
+					alert("appointment not saved");
+					return;
+				}
 				window.alert("Your appointment successfully scheduled.");
+				window.location.href = "/appointmentpage";
 			})
 			.catch((error) => {
 				console.error(

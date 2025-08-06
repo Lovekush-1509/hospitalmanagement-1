@@ -13,32 +13,34 @@ const LandingPage = () => {
 	const { user, loggedIn, baseURL } = useContext(LoginDetails);
 	const [appointments, setAppointments] = useState([]);
 	const [loading, setLoading] = useState(false);
-
+	
 	useEffect(() => {
-		if (loggedIn) {
+		console.log("Inside landing page useEffect:",loggedIn);
+		// if (loggedIn) {
 			setLoading(true);
 			const fetchAppointments = async () => {
-				await Axios.get(`${baseURL}/user/getApt/${user._id}`)
+				await Axios.get(`${baseURL}/user/getApt/`,{withCredentials: true, credentials: "include"})
 					.then(({ data: foundAppointments }) => {
 						console.info(
-							`Appointments were found for user with name:${user.name}`
+							`Appointments were found for user with name:${user?.name}`,
+							foundAppointments
 						);
-						setAppointments(foundAppointments);
+						foundAppointments.data.appointment.length == 0?setAppointments([]):setAppointments(foundAppointments.data.appointment);
 						setTimeout(() => {
 							setLoading(false);
 						}, 1000);
 					})
 					.catch((error) => {
 						console.error(
-							`Some error occured while fetching Appoinment for user :${user.name}`,
+							`Some error occured while fetching Appoinment for user :${user?.name}`,
 							error
 						);
 					});
 			};
 			fetchAppointments();
-		}
+		// }
 		// eslint-disable-next-line
-	}, [user]);
+	}, []);
 
 	const BookMore = () => {
 		window.location.href = "/appointments";
@@ -57,7 +59,7 @@ const LandingPage = () => {
 			<div id={"apt-container"}>
 				<Navbar />
 				<br />
-				<h1 id={"welcome-head"}>Welcome,&nbsp;{user.name}!</h1>
+				<h1 id={"welcome-head"}>Welcome,&nbsp;{user?.name}!</h1>
 				<p id={"Appointment-sub-head"}>
 					Get all your pending appointments here.
 				</p>

@@ -1,11 +1,14 @@
 import React from "react";
+import dayjs from "dayjs";
 
 import logo from "../assets/imgs/vaccine.png";
 
 const AppointmentCards = (props) => {
 	const { appointment } = props;
+	console.log("inside apt card:",appointment);
 	var slot = "7AM - 10AM";
-	var dateofAppointment = appointment.date.toString().slice(0, 10);
+	const dateofAppointment = dayjs(1755734400000).format("DD-MM-YY");
+
 	if (appointment.slot === 1) {
 		slot = "12PM - 4PM";
 	}

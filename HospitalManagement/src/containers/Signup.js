@@ -13,11 +13,12 @@ const Signup = () => {
 	const { baseURL } = useContext(LoginDetails);
 	const onFormSubmit = async (event) => {
 		event.preventDefault();
+		console.log(`${baseURL}/user/signup`,"",user)
 		await Axios.post(`${baseURL}/user/signup`, user)
 			.then(({ data }) => {
 				console.info(data);
 				localStorage.setItem("user", JSON.stringify(data));
-				window.location.href = "/";
+				window.location.href = "/login";
 			})
 			.catch((error) => {
 				console.error(error);

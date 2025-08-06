@@ -5,7 +5,7 @@ const Footer = () => {
 		<footer>
 			<div className={"footer"} id={"footer"}>
 				<span className={"footer-left"}>
-					&copy; 2021 HOSPITAL All Rights Reserved
+					&copy; 2024 HOSPITAL All Rights Reserved
 				</span>
 			</div>
 			<div className={"footer-bottom"}>

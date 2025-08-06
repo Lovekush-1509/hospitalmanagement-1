@@ -9,16 +9,30 @@ import logo from "../assets/imgs/logo.png";
 import "../assets/css/form.css";
 
 const Login = () => {
-	const { setUser, baseURL } = useContext(LoginDetails);
+	const { setUser, baseURL,setLoggedIn,loggedIn} = useContext(LoginDetails);
 	const [credentials, setCredentials] = useState({});
 
 	const onFormSubmit = async (event) => {
 		event.preventDefault();
-		await Axios.post(`${baseURL}/user/login`, credentials)
+		console.log(baseURL,credentials)
+		await Axios.post(`${baseURL}/user/login`, credentials,{withCredentials: true, credentials: "include"})
 			.then(({ data }) => {
-				console.info(data);
-				localStorage.setItem("user", JSON.stringify(data));
-				setUser(data.user);
+				if(data.success === false){
+					var incCredentials = document.getElementById(
+						"Incorrect-credentials"
+					);
+					incCredentials.style.display = "block";
+					return;
+				}
+				console.info("user data inside login form",data.data);
+				localStorage.setItem("user", JSON.stringify(data.data));
+				setUser(data.data);
+				console.log("error 1")
+				setLoggedIn(true);
+				setTimeout(() => {
+					console.log("login value in:",loggedIn)
+				}, 5000);
+				// console.log("error 2")
 				window.location.href = "/appointmentpage";
 			})
 			.catch((error) => {
@@ -42,7 +56,7 @@ const Login = () => {
 				<Navbar />
 				<div className={"parent-container"}>
 					<form id={"login-container"}>
-						<img src={logo} alt={"Health Insurance"} />
+						<img src={logo} alt={"Health Insurance"}/>
 						<div className={"input-container"}>
 							<i className={"fa fa-envelope icon"}></i>
 							<input

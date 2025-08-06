@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import {
 	BrowserRouter as Router,
-	Redirect,
+	Navigate,
+	Routes,
 	Route,
-	Switch,
 } from "react-router-dom";
 
 import { BASE_URL } from "./config/base";
@@ -20,45 +20,29 @@ const App = () => {
 	const baseURL = BASE_URL;
 
 	useEffect(() => {
+		// localStorage.clear("user")
 		const savedUser = localStorage.getItem("user");
 		if (!loggedIn && savedUser) {
 			setUser(JSON.parse(savedUser).user);
 			setLoggedIn(true);
+			// window.location.href = "/appointmentpage";
 		}
 		// eslint-disable-next-line
 	}, []);
 
 	return (
-		<LoginDetails.Provider value={{ loggedIn, user, setUser, baseURL }}>
+		<LoginDetails.Provider value={{setLoggedIn, loggedIn, user, setUser, baseURL }}>
 			<Router>
-				<div>
-					<Switch>
-						<Route path={"/"} exact>
-							<HomePage />
-						</Route>
-						<Route path={"/login"}>
-							<Login />
-						</Route>
-						<Route path={"/signup"}>
-							<Signup />
-						</Route>
-						<Route path={"/appointments"}>
-							<BookAppointments />
-						</Route>
-						<Route path={"/appointmentpage"}>
-							<LandingPage />
-						</Route>
-						<Route path={"/about-us"}>
-							<Redirect to={"/#about-us"} />
-						</Route>
-						<Route path={"/404"}>
-							<h1>Page not found</h1>
-						</Route>
-						<Route path={"/**"}>
-							<Redirect to={"/404"} />
-						</Route>
-					</Switch>
-				</div>
+					<Routes>
+						<Route path={"/"} element ={<HomePage />}/>
+						<Route path={"/login"} element={<Login/>}/>
+						<Route path={"/signup"} element={<Signup />}/>
+						<Route path={"/appointments"}element={<BookAppointments />}/>
+						<Route path={"/appointmentpage"} element={<LandingPage />}/>
+						<Route path={"/about-us"} element={<Navigate to={"/#about-us"} />}/>
+						<Route path={"/404"} element={<h1>Page not found</h1>}/>
+						<Route path={"/**"} element={<Navigate to={"/404"} />}/>
+					</Routes>
 			</Router>
 		</LoginDetails.Provider>
 	);
